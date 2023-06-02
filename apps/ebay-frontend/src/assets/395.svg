@@ -1,0 +1,43 @@
+
+    <svg width="800" height="800" viewBox="0 0 800 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+        
+<rect width="800" height="800" fill="#00F418"/>
+
+        
+<path d="M536.5 344C536.5 448.507 464.719 532.5 377 532.5C289.281 532.5 217.5 448.507 217.5 344C217.5 239.493 289.281 155.5 377 155.5C464.719 155.5 536.5 239.493 536.5 344Z" fill="#FDE7D6" stroke="#808080" stroke-width="5"/>
+<rect x="282.5" y="480.5" width="68" height="271" fill="#FDE7D6" stroke="#808080" stroke-width="5"/>
+<path d="M356.12 527.25C324.539 522.174 294.93 506.228 270.998 481.407L299.223 443.579C316.842 461.853 338.641 473.593 361.892 477.33L356.12 527.25Z" fill="#FDE7D6"/>
+
+        
+<path d="M379 321C379 348.614 356.614 371 329 371C301.386 371 279 348.614 279 321C279 293.386 301.386 271 329 271C356.614 271 379 293.386 379 321Z" fill="#1E1E1E"/>
+<path d="M521 321C521 348.614 498.614 371 471 371C443.386 371 421 348.614 421 321C421 293.386 443.386 271 471 271C498.614 271 521 293.386 521 321Z" fill="#1E1E1E"/>
+<ellipse cx="329" cy="282.5" rx="11" ry="11.5" fill="#D9D9D9"/>
+<g filter="url(#filter0_dd_1_167)">
+<ellipse cx="471" cy="282.5" rx="11" ry="11.5" fill="#D9D9D9"/>
+</g>
+<defs>
+<filter id="filter0_dd_1_167" x="456" y="271" width="30" height="31" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_167"/>
+<feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+<feOffset dy="4"/>
+<feGaussianBlur stdDeviation="2"/>
+<feComposite in2="hardAlpha" operator="out"/>
+<feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+<feBlend mode="normal" in2="effect1_dropShadow_1_167" result="effect2_dropShadow_1_167"/>
+<feBlend mode="normal" in="SourceGraphic" in2="effect2_dropShadow_1_167" result="shape"/>
+</filter>
+</defs>
+
+        
+<path d="M433.441 394.5L409.5 437.771L385.559 394.5H433.441Z" stroke="black" stroke-width="7"/>
+
+        
+<path d="M327 482C417.351 435.945 460.129 479.656 474 482" stroke="black" stroke-width="5"/>
+
+    </svg>
