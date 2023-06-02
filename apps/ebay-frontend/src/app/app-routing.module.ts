@@ -4,6 +4,7 @@ import { SellNFTComponent } from './sell-nft/sell-nft.component';
 import { BrowseNFTComponent } from './browse-nft/browse-nft.component';
 import { BuyNFTComponent } from './buy-nft/buy-nft.component';
 import { MyNFTComponent } from './my-nft/my-nft.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   // {
@@ -26,10 +27,10 @@ const routes: Routes = [
   //   path: 'login',
   //   component: LoginComponent
   // },
-  // {
-  //   path: '**',
-  //   component: HomeComponent
-  // },
+  {
+    path: '**',
+    component: HomeComponent
+  },
   
 ];
 

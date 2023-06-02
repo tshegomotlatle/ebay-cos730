@@ -1,0 +1,85 @@
+<nav class="navbar bg-body-tertiary fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="assets/logo.png" id="logo" alt="logo.png">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+            aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
+            aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+                    <img src="assets/logo.png" id="logo" alt="logo.png">
+                    NFT's
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" (click)="mintNFTs()">
+                            <span class="material-symbols-outlined navIcons">
+                                add_circle
+                            </span>
+                            Mint NFT
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="browseNFTs()">
+                            <span class="material-symbols-outlined navIcons">
+                                store
+                            </span>
+                            Market
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" (click)="myNFTs()">
+                            <span class="material-symbols-outlined navIcons">
+                                shelves
+                            </span>
+                            My NFTs
+                        </a>
+                    </li>
+                    <li class="nav-item last">
+                        <a class="nav-link" (click)="logout()">
+                            <span class="material-symbols-outlined navIcons">
+                                logout
+                            </span>
+                            Logout
+                        </a>
+                    </li>
+                </ul>
+                <!-- <form class="d-flex mt-3" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form> -->
+            </div>
+        </div>
+    </div>
+</nav>
+<div class="bodyContainer">
+    <div *ngIf="!isIdentified">
+        <a href="https://metamask.io" class="btn btn-black btn-link" target="_blank">
+            Please install metamask wallet to use this app
+        </a>
+        <button *ngIf="isIdentified && !isConnected" type="button" class="btn btn-outline-dark"
+            (click)="connectMetamask()">
+            Connect using Metamask
+        </button>
+    </div>
+    <!-- <div *ngIf="mintNFT === true">
+      <app-mint-nft></app-mint-nft>
+  </div>
+  <div *ngIf="browseNFT === true">
+      <app-browse-nft></app-browse-nft>
+  </div>
+  <div *ngIf="myNFT === true">
+      <app-my-nft></app-my-nft>
+  </div>
+  <div *ngIf="sellNFT === true">
+    <app-sell-nft></app-sell-nft>
+  </div> -->
+    <router-outlet></router-outlet>
+</div>

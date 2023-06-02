@@ -15,6 +15,7 @@ import { BuyNFTComponent } from './buy-nft/buy-nft.component';
 import { BrowseNFTComponent } from './browse-nft/browse-nft.component';
 import { MyNFTComponent } from './my-nft/my-nft.component';
 import { HttpClientModule } from '@angular/common/http';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     BuyNFTComponent,
     BrowseNFTComponent,
     MyNFTComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     FirestoreModule,
     provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideFirestore(() => getFirestore()),
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
