@@ -1,0 +1,89 @@
+.imageNFT {
+    height: 250px;
+    width: 250px;
+}
+
+.test {
+    border: 2px solid red;
+}
+
+.containers {
+    position: relative;
+    height: 250px;
+    width: 250px;
+}
+
+.image {
+    display: block;
+    height: 250px;
+    width: 250px;
+    padding: 10px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 250px;
+    width: 250px;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008CBA;
+}
+
+.containers:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.name {
+    font-size: larger;
+    font-weight: 600;
+}
+
+.prevousOwners {
+    font-size: small;
+}
+
+.rarity {
+    font-size: small;
+}
+
+.infoContainer {
+    padding-left: 15px;
+}
+
+span.material-symbols-outlined.icons {
+    position: relative;
+    top: 7px;
+}
+
+.border.rounded.p-1 {
+    width: 165px;
+}
+
+.border.rounded.p-1.cart {
+    width: 100px;
+}
+
+.filterContainer {
+    width: 20vw;
+}
+
+.filterContainer {
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
