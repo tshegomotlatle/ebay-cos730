@@ -5,19 +5,23 @@
             <div class="filterName">
                 <b>Noses</b>
             </div>
-            <div class="form-check" *ngFor="let nose of noses">
-                <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault">
-                    {{nose}}
-                </label>
-            </div>
+            <form>
+                <div class="form-check" *ngFor="let nose of noses, index as i">
+                    <input class="form-check-input" type="radio" value="{{nose}}" name="noseRadio" id="flexCheckDefault"
+                        (change)="addToFilter('nose',nose)">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        {{nose}}
+                    </label>
+                </div>
+            </form>
         </div>
         <div class="filterContainer">
             <div class="filterName">
                 <b>Eyes</b>
             </div>
             <div class="form-check" *ngFor="let eyes of eyes">
-                <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="radio" value="{{eyes}}" name="eyesRadio" id="flexCheckDefault"
+                    (change)="addToFilter('eyes',eyes)">
                 <label class="form-check-label" for="flexCheckDefault">
                     {{eyes}}
                 </label>
@@ -28,7 +32,8 @@
                 <b>Mouth</b>
             </div>
             <div class="form-check" *ngFor="let mouth of mouths">
-                <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="radio" value="{{mouth}}" name="mouthRadio" id="flexCheckDefault"
+                    (change)="addToFilter('mouth',mouth)">
                 <label class="form-check-label" for="flexCheckDefault">
                     {{mouth}}
                 </label>
@@ -39,7 +44,8 @@
                 <b>Skin</b>
             </div>
             <div class="form-check" *ngFor="let skin of skins">
-                <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="radio" value="{{skin}}" name="noseRadio" id="flexCheckDefault"
+                    (change)="addToFilter('skin',skin)">
                 <label class="form-check-label" for="flexCheckDefault">
                     {{skin}}
                 </label>
@@ -50,11 +56,15 @@
                 <b>Background Colour</b>
             </div>
             <div class="form-check" *ngFor="let background of backgrounds">
-                <input class="form-check-input" type="radio" value="" id="flexCheckDefault">
+                <input class="form-check-input" type="radio" value="{{background}}" name="backgroundRadio"
+                    id="flexCheckDefault" (change)="addToFilter('background',background)">
                 <label class="form-check-label" for="flexCheckDefault">
                     {{background}}
                 </label>
             </div>
+        </div>
+        <div class="centre">
+            <button type="button" class="btn btn-outline-dark resetButton" (click)="resetFilters()">Reset</button>
         </div>
     </div>
     <div class="row">

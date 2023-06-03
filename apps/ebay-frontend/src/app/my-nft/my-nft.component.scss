@@ -11,6 +11,8 @@
     position: relative;
     height: 250px;
     width: 250px;
+    display: flex;
+    justify-content: center;
 }
 
 .image {
@@ -24,13 +26,13 @@
     position: absolute;
     top: 0;
     bottom: 0;
-    left: 0;
+    left: 0px;
     right: 0;
-    height: 250px;
-    width: 250px;
+    height: 100%;
+    width: 100%;
     opacity: 0;
-    transition: .5s ease;
-    background-color: #008CBA;
+    transition: 0.5s ease;
+    background-color: white;
 }
 
 .containers:hover .overlay {
@@ -72,7 +74,7 @@ span.material-symbols-outlined.icons {
 }
 
 .border.rounded.p-1 {
-    width: 165px;
+    width: 112px;
 }
 
 .border.rounded.p-1.cart {
@@ -86,4 +88,31 @@ span.material-symbols-outlined.icons {
 .filterContainer {
     padding-left: 15px;
     padding-bottom: 15px;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100cw;
+    height: 100vh;
+}
+
+.col-12.border.d-flex {
+    height: 250px;
+    width: 75vw;
+}
+
+button.btn.btn-outline-dark.resetButton {
+    width: 50%;
+}
+
+.centre {
+    display: flex;
+    justify-content: center;
+}
+
+.row {
+    margin-right: 0px;
+    margin-left: 0px;
 }
