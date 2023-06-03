@@ -18,6 +18,10 @@ export class BuyNFTComponent implements OnInit {
   public contractABI = contract.abi;
   name: string = "";
   price: number = 0
+  modalHeading!: string;
+  modalBody!: string;
+  ethereum!: any;
+  isTipping: boolean = true;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -73,7 +77,7 @@ export class BuyNFTComponent implements OnInit {
         }
         else {
 
-          temp = await this.nftService.getNFT();
+          temp = await this.nftService.getNFTSold();
           this.nft = temp.filter(
             (data: any) => {
               if (data.name == this.name)
@@ -91,14 +95,22 @@ export class BuyNFTComponent implements OnInit {
     )
   }
 
-  async sellNFT() {
-    if (await this.checkIfExists(this.nft) == false)
-      this.nftService.sellNFT(this.nft).then(
-        (response) => {
-          console.log(response);
-
-        }
-      )
+  async buyNFT() {
+    this.nft.attributes.rarity = (parseFloat(this.nft.attributes.rarity) / 100) + "";
+    this.takeMoney().then(
+      () =>{
+        this.nftService.deleteFromSold(this.nft).then(
+          (response) => {
+            console.log(response);
+            this.nft.email = localStorage.getItem('email') || "";
+            this.nftService.buyNFT(this.nft).then(
+              ()=>{
+                this.openModal("Buy", this.nft)
+              }
+            )
+          })
+      }
+    )
   }
 
   private async fetchNFTs(): Promise<any> {
@@ -132,5 +144,54 @@ export class BuyNFTComponent implements OnInit {
     console.log(imageArray.includes(this.nft.image));
 
     return imageArray.includes(this.nft.image);
+  }
+  
+  openModal(type: string, nft: nftInterface) {
+    this.modalHeading = "Buy NFT";
+    this.modalBody = `Item ${nft.name} has been bought and added to your account`;
+    document.getElementById('modalClicker')?.click()
+  }
+
+  async takeMoney(){
+    this.ethereum = (window as any).ethereum
+    this.nft.email = localStorage.getItem("email") || "";;
+
+
+    if (!this.ethereum) {
+      console.error('Ethereum object is required to submit a tip');
+      return;
+    }
+    this.isTipping = true;
+    try {
+      const provider = new ethers.providers.Web3Provider(this.ethereum);
+      const signer = provider.getSigner();
+      const keyboardsContract = new ethers.Contract(this.CONTRACT_ADDRESS, this.contractABI, signer);
+      const args =
+      {
+        name: this.nft.name,
+        email: this.nft.email,
+        description: this.nft.description,
+        image: this.nft.image,
+        background: this.nft.attributes.background,
+        skinColour: this.nft.attributes.skinColour,
+        eyes: this.nft.attributes.eyes,
+        nose: this.nft.attributes.nose,
+        mouth: this.nft.attributes.mouth,
+        rarity: this.nft.attributes.rarity
+      }
+      const createTxn = await keyboardsContract['create'](args);
+      await createTxn.wait();
+      console.log('Sent tip!', createTxn.hash);
+      this.nftService.buyNFT(this.nft).then(
+        (response) => {
+          console.log(response);
+          this.openModal("mint", this.nft)
+        }
+      )
+    } catch (err: any) {
+      console.error(err.message);
+    } finally {
+      this.isTipping = false;
+    }
   }
 }

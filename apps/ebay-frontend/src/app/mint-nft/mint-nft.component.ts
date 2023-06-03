@@ -19,6 +19,8 @@ export class MintNFTComponent implements OnInit {
   readonly CONTRACT_ADDRESS: string = "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9";
   isTipping!: boolean;
   contractABI = contract.abi;
+  modalHeading!: string;
+  modalBody!: string;
   // public contractABI = contract.abi;
 
   constructor(
@@ -112,6 +114,7 @@ export class MintNFTComponent implements OnInit {
       this.nftService.buyNFT(this.nft).then(
         (response) => {
           console.log(response);
+          this.openModal("mint", this.nft)
         }
       )
     } catch (err: any) {
@@ -119,6 +122,12 @@ export class MintNFTComponent implements OnInit {
     } finally {
       this.isTipping = false;
     }
+  }
+
+  openModal(type: string, nft: nftInterface) {
+    this.modalHeading = "Mint NFT";
+    this.modalBody = `Item ${nft.name} has been minted to your account`;
+    document.getElementById('modalClicker')?.click()
   }
 
 

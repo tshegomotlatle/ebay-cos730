@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { collection, addDoc, getFirestore, doc, getDoc, getDocs, query, where } from "firebase/firestore"; 
+import { collection, addDoc, getFirestore, doc, getDoc, getDocs, query, where, deleteDoc, setDoc } from "firebase/firestore"; 
 import { initializeApp } from 'firebase/app';
 import { nftInterface } from '../app/interfaces/nft-interface';
 import { environment } from '../environments/environment';
@@ -25,16 +25,44 @@ export class NftServiceService {
 
   async buyNFT(nft : nftInterface){
     try {
-      const docRef = await addDoc(collection(this.db, "NFTsBought"), nft);
-      return ({"Document written with ID ": docRef.id});
+      // const docRef = await addDoc(collection(this.db, "NFTsBought"), nft);
+      const docRef = await setDoc(doc(this.db, "NFTsBought", nft.image), {
+        name: nft.name,
+        email: nft.email,
+        description: nft.description,
+        image: nft.image,
+        attributes:{
+          skinColour : nft.attributes.skinColour,
+          background : nft.attributes.background,
+          eyes : nft.attributes.eyes,
+          mouth : nft.attributes.mouth,
+          nose : nft.attributes.nose,
+          rarity: nft.attributes.rarity,
+        } 
+      });
+      return ({"Document written with ID ": nft.image});
     } catch (e) {
       return ({"Error adding document": e});
     }
    }
   async sellNFT(nft : nftInterface){
     try {
-      const docRef = await addDoc(collection(this.db, "NFTsSold"), nft);
-      return ({"Document written with ID ": docRef.id});
+      // const docRef = await addDoc(collection(this.db, "NFTsSold"), nft);
+      const docRef = await setDoc(doc(this.db, "NFTsSold", nft.image), {
+        name: nft.name,
+        email: nft.email,
+        description: nft.description,
+        image: nft.image,
+        attributes: {
+          skinColour: nft.attributes.skinColour,
+          background: nft.attributes.background,
+          eyes: nft.attributes.eyes,
+          mouth: nft.attributes.mouth,
+          nose: nft.attributes.nose,
+          rarity: nft.attributes.rarity,
+        }
+      });
+      return ({"Document written with ID ": nft.image});
     } catch (e) {
       return ({"Error adding document": e});
     }
@@ -89,4 +117,41 @@ export class NftServiceService {
     {
       this.address = address
     }
+
+  async buyNFTFromMarket(nft: nftInterface){
+    try {
+      // const docRef = await deleteDoc(doc(this.db, "NFTsSold", nft.));
+      const temp = await addDoc(collection(this.db, "NFTsBought"), nft).then(
+        (response) =>{
+
+          console.log(response);
+        }
+      );
+      
+      // return ({ "Delete call Success": docRef });
+      return;
+    } catch (e) {
+      return ({ "Error adding document": e });
+    }
+  }
+
+  async deleteFromBought(nft: nftInterface){
+          const docRef = await deleteDoc(doc(this.db, "NFTsBought", nft.image)).then(
+            (response) =>{
+              console.log(response);
+              
+            }
+          );
+            return docRef;
+  }
+
+  async deleteFromSold(nft: nftInterface){
+          const docRef = await deleteDoc(doc(this.db, "NFTsSold", nft.image)).then(
+            (response) =>{
+              console.log(response);
+              
+            }
+          );
+            return docRef;
+  }
   }

@@ -18,6 +18,8 @@ export class SellNFTComponent implements OnInit {
   // public contractABI = "";
   name: string = "";
   price: number = 0
+  modalHeading!: string;
+  modalBody!: string;
 
   constructor(
     private activateRoute: ActivatedRoute,
@@ -91,10 +93,23 @@ export class SellNFTComponent implements OnInit {
 
   async sellNFT() {
     if (await this.checkIfExists(this.nft) == false)
-      this.nftService.sellNFT(this.nft).then(
-        (response) => {
-          console.log(response);
+      // this.nftService.sellNFT(this.nft).then(
+      //   (response) => {
+      //     console.log(response);
+      //     this.openModal("sell", this.nft)
+      //   }
+      // )
+      this.nft.attributes.rarity = (parseFloat(this.nft.attributes.rarity) / 100).toString();
 
+      this.nftService.deleteFromBought(this.nft).then(
+        (response)=>{
+          console.log(response);
+          
+          this.nftService.sellNFT(this.nft).then(
+          (response) => {
+            console.log(response);
+            this.openModal("sell", this.nft)
+          })
         }
       )
   }
@@ -131,5 +146,12 @@ export class SellNFTComponent implements OnInit {
 
     return imageArray.includes(this.nft.image);
   }
+
+  openModal(type: string, nft: nftInterface) {
+    this.modalHeading = "Sell NFT";
+    this.modalBody = `Item ${nft.name} has been removed from your account and added to the market place`;
+    document.getElementById('modalClicker')?.click()
+  }
+
 
 }

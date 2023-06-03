@@ -49,7 +49,33 @@
                     <input type="text" class="form-control" [value]="nft.attributes.rarity">
                 </div>
             </div>
-            <button type="button" class="btn btn-primary" (click)="mintNFT()">Mint NFT</button>
+            <button type="button" class="btn btn-outline-dark" (click)="mintNFT()">Mint NFT</button>
+
+        </div>
+    </div>
+</div>
+
+<button type="button" hidden data-bs-toggle="modal" data-bs-target="#myModal" id="modalClicker"></button>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">{{modalHeading}}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                {{modalBody}}
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+            </div>
 
         </div>
     </div>
