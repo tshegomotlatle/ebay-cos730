@@ -29,6 +29,7 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true,
     "resolveJsonModule": true,
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true
   }
 }

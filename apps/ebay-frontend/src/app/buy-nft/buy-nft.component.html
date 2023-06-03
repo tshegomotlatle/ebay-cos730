@@ -1,0 +1,62 @@
+<div class="row mintNFTContainer">
+    <div class="col-7 border containerInner">
+        <img src="assets/{{nft.image}}" class="mintImage" alt="nft-image">
+    </div>
+    <div class="col-5 border containerInner pt-5">
+        <div class="mb-3">
+            <label for="nftName" class="form-label">NFT Name</label>
+            <input type="text" class="form-control" id="nftName" [value]="nft.name">
+        </div>
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" id="description">{{nft.description}}</textarea>
+        </div>
+        <div class="mb-3">
+            <label for="atrributes" class="form-label">Atrributes:</label>
+            <div class="mb-3">
+                <div class="input-group">
+                    <span class="input-group-text">Background</span>
+                    <input type="text" class="form-control" [value]="nft.attributes.background">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <span class="input-group-text">Skin Colour</span>
+                    <input type="text" class="form-control" [value]="nft.attributes.skinColour">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <span class="input-group-text">Eyes</span>
+                    <input type="text" class="form-control" [value]="nft.attributes.eyes">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <span class="input-group-text">Nose</span>
+                    <input type="text" class="form-control" [value]="nft.attributes.nose">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <span class="input-group-text">Mouth</span>
+                    <input type="text" class="form-control" [value]="nft.attributes.mouth">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <span class="input-group-text">Rarity</span>
+                    <input type="text" class="form-control" [value]="nft.attributes.rarity">
+                </div>
+            </div>
+            <div class="mb-3">
+                <div class="input-group">
+                    <span class="input-group-text">ZAR</span>
+                    <input type="text" class="form-control" [value]="price">
+                </div>
+            </div>
+            <button type="button" class="btn btn-primary" (click)="sellNFT()">Buy NFT</button>
+
+        </div>
+    </div>
+</div>

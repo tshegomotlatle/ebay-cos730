@@ -1,0 +1,164 @@
+<div class="myContainer d-flex">
+    <div class="d-flex flex-column">
+        <h3 class="filterContainer">Filter</h3>
+        <div class="filterContainer">
+            <div class="filterName">
+                <b>Noses</b>
+            </div>
+            <form>
+                <div class="form-check" *ngFor="let nose of noses, index as i">
+                    <input class="form-check-input" type="radio" value="{{nose}}" name="noseRadio" id="flexCheckDefault" (change)="addToFilter('nose',nose)">
+                    <label class="form-check-label" for="flexCheckDefault">
+                        {{nose}}
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="filterContainer">
+            <div class="filterName">
+                <b>Eyes</b>
+            </div>
+            <div class="form-check" *ngFor="let eyes of eyes">
+                <input class="form-check-input" type="radio" value="{{eyes}}" name="eyesRadio" id="flexCheckDefault" (change)="addToFilter('eyes',eyes)">
+                <label class="form-check-label" for="flexCheckDefault">
+                    {{eyes}}
+                </label>
+            </div>
+        </div>
+        <div class="filterContainer">
+            <div class="filterName">
+                <b>Mouth</b>
+            </div>
+            <div class="form-check" *ngFor="let mouth of mouths">
+                <input class="form-check-input" type="radio" value="{{mouth}}" name="mouthRadio" id="flexCheckDefault" (change)="addToFilter('mouth',mouth)">
+                <label class="form-check-label" for="flexCheckDefault">
+                    {{mouth}}
+                </label>
+            </div>
+        </div>
+        <div class="filterContainer">
+            <div class="filterName">
+                <b>Skin</b>
+            </div>
+            <div class="form-check" *ngFor="let skin of skins">
+                <input class="form-check-input" type="radio" value="{{skin}}" name="noseRadio" id="flexCheckDefault" (change)="addToFilter('skin',skin)">
+                <label class="form-check-label" for="flexCheckDefault">
+                    {{skin}}
+                </label>
+            </div>
+        </div>
+        <div class="filterContainer">
+            <div class="filterName">
+                <b>Background Colour</b>
+            </div>
+            <div class="form-check" *ngFor="let background of backgrounds">
+                <input class="form-check-input" type="radio" value="{{background}}" name="backgroundRadio" id="flexCheckDefault" (change)="addToFilter('background',background)">
+                <label class="form-check-label" for="flexCheckDefault">
+                    {{background}}
+                </label>
+            </div>
+        </div>
+        <div class="centre">
+            <button type="button" class="btn btn-outline-dark resetButton" (click)="resetFilters()">Reset</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12 border d-flex" *ngFor="let nft of nfts" >
+            <div class="containers flex-fill">
+                <img src="assets/{{nft.image}}" alt="Avatar" class="image">
+                <div class="overlay">
+                    <div class="text">
+                        <button type="button" class="btn btn-outline-dark"
+                            [routerLink]="['/sellNFT',{id:nft.name}]">Show details</button>
+                    </div>
+                </div>
+            </div>
+            <div class="infoContainer flex-fill">
+                <div class="infoNFT">
+                    <div class="name">
+                        {{nft.name | titlecase}} - {{nft.description}}
+                    </div>
+                </div>
+                <div class="infoNFT">
+                    <div class="prevousOwners">Previous Owners: 5</div>
+                </div> <br>
+                <div class="infoNFT">
+                    <div class="rarity">
+                        <span class="material-symbols-outlined">
+                            star
+                        </span>
+                        <span class="material-symbols-outlined">
+                            star
+                        </span>
+                        <span class="material-symbols-outlined">
+                            star
+                        </span>
+                        <span class="material-symbols-outlined">
+                            star
+                        </span>
+                        <span class="material-symbols-outlined">
+                            star
+                        </span>
+                    </div>
+                </div>
+                <div class="infoNFT">
+                    <div class="rarity"><b>Rarity:</b> {{nft.attributes.rarity * 100}}%</div>
+                </div> <br>
+                <div class="infoNFT">
+                    <div class="price">
+                        <b>ZAR {{10000 - (nft.attributes.rarity * 100 * 100)}}.00</b>
+                    </div>
+                </div>
+                <div class="infoNFT">
+                    <span class="badge rounded-pill text-bg-primary">Background: {{nft.attributes.background}}</span>
+                    <span class="badge rounded-pill text-bg-success">Eyes: {{nft.attributes.eyes}}</span>
+                    <span class="badge rounded-pill text-bg-danger">Nose: {{nft.attributes.nose}}</span>
+                    <span class="badge rounded-pill text-bg-warning">Skin: {{nft.attributes.skinColour}}</span>
+                    <span class="badge rounded-pill text-bg-info">Mouth: {{nft.attributes.mouth}}</span>
+                </div>
+            </div>
+            <div class="buttonContainer flex-fill">
+                <br> <br>
+                <button type="button"  class="border rounded p-1 btn btn-outline-dark" (click)="addToFavourite(nft)">
+                    <span class="material-symbols-outlined icons">
+                        favorite
+                    </span>
+                    Favourites
+                </button>
+                <br><br>
+                <button type="button"  class="border rounded p-1 cart btn btn-outline-dark" [routerLink]="['/sellNFT',{id:nft.name}]">
+                    <span class="material-symbols-outlined icons">
+                        shopping_cart
+                    </span>
+                    Sell NFT
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button type="button" hidden data-bs-toggle="modal" data-bs-target="#myModal" id="modalClicker"></button>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">{{modalHeading}}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                {{modalBody}}
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
