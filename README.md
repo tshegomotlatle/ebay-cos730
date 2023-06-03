@@ -27,6 +27,11 @@ https://github.com/users/tshegomotlatle/projects/1
 
 # Profile
 
+
+![Me](https://i.ibb.co/7G9bnLr/Whats-App-Image-2023-06-04-at-00-16-39.jpg)
+
+
+
 ## 🚀 About Me
 I'm a full stack developer currently doing the B.IT honours, with special intrests in Cloud Computing, Software Enginner and Devloper Operations. I spend most of my life staring into the screen, either debugging, devloping or gaming. 
 
