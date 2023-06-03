@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from "@angular/router/testing";
+
 
 import { BuyNFTComponent } from './buy-nft.component';
+import { ActivatedRoute } from '@angular/router';
 
 describe('BuyNFTComponent', () => {
   let component: BuyNFTComponent;
@@ -9,6 +12,7 @@ describe('BuyNFTComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [BuyNFTComponent],
+      imports: [RouterTestingModule]
     }).compileComponents();
 
     fixture = TestBed.createComponent(BuyNFTComponent);

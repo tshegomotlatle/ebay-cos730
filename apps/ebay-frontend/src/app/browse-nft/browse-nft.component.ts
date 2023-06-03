@@ -36,6 +36,7 @@ export class BrowseNFTComponent implements OnInit {
         console.log(response);
 
         this.nfts = response;
+        this.nftsPerm = this.nfts;
       }
     )
   }
