@@ -15,14 +15,17 @@
     "@angular/common": "~14.2.0",
     "@angular/compiler": "~14.2.0",
     "@angular/core": "~14.2.0",
+    "@angular/fire": "^7.6.1",
     "@angular/forms": "~14.2.0",
     "@angular/platform-browser": "~14.2.0",
     "@angular/platform-browser-dynamic": "~14.2.0",
     "@angular/router": "~14.2.0",
     "@nrwl/angular": "14.8.4",
+    "firebase": "^9.22.1",
     "rxjs": "~7.5.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "dotenv": "^16.0.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~14.2.0",
@@ -37,6 +40,7 @@
     "@nrwl/eslint-plugin-nx": "14.8.4",
     "@nrwl/jest": "14.8.4",
     "@nrwl/linter": "14.8.4",
+    "@nrwl/node": "14.8.4",
     "@nrwl/nx-cloud": "latest",
     "@nrwl/workspace": "14.8.4",
     "@types/jest": "28.1.1",
@@ -54,6 +58,13 @@
     "prettier": "^2.6.2",
     "ts-jest": "28.0.5",
     "ts-node": "10.9.1",
-    "typescript": "~4.8.2"
+    "typescript": "~4.8.2",
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "@nomiclabs/hardhat-ethers": "^2.0.0",
+    "@nomiclabs/hardhat-waffle": "^2.0.0",
+    "chai": "^4.2.0",
+    "ethereum-waffle": "^3.0.0",
+    "ethers": "^5.0.0",
+    "hardhat": "^2.8.0"
   }
 }

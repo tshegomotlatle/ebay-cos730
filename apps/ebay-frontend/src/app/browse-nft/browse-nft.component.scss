@@ -1,0 +1,128 @@
+.imageNFT {
+    height: 250px;
+    width: 250px;
+}
+
+.test {
+    border: 2px solid red;
+}
+
+.containers {
+    position: relative;
+    height: 250px;
+    width: 250px;
+}
+
+.image {
+    display: block;
+    height: 250px;
+    width: 250px;
+    border: 2px solid black;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0px;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: 0.5s ease;
+    background-color: white;
+}
+
+.containers:hover .overlay {
+    opacity: 1;
+}
+
+.text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.name {
+    font-size: larger;
+    font-weight: 600;
+}
+
+.prevousOwners {
+    font-size: small;
+}
+
+.rarity {
+    font-size: small;
+}
+
+.infoContainer {
+    padding-left: 15px;
+}
+
+span.material-symbols-outlined.icons {
+    position: relative;
+    top: 7px;
+}
+
+.border.rounded.p-1 {
+    width: 165px;
+}
+
+.border.rounded.p-1.cart {
+    width: 100px;
+}
+
+.filterContainer {
+    width: 20vw;
+}
+
+.filterContainer {
+    padding-left: 15px;
+    padding-bottom: 15px;
+}
+
+.containers.centre {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.NFTSalePage {
+    padding: 35px;
+    margin: 10px 40px;
+    border: 1px solid lightgrey;
+    border-radius: 35px;
+}
+
+.NFTSalePage:hover {
+    padding: 35px;
+    margin: 10px 40px;
+    border: 1px solid black;
+    border-radius: 35px;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100cw;
+    height: 100vh;
+}
+
+button.btn.btn-outline-dark.resetButton {
+    width: 50%;
+}
+
+.centre {
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,20 @@
+<div class="loginContainer">
+    <div class="border align-items-center justify-content-center" style="height: 350px;">
+        <div>
+            <img src="assets/logo.png" alt="">
+        </div>
+        <div class="mb-3">
+            <div class="input-group">
+                <span class="input-group-text">Email</span>
+                <input type="text" class="form-control" [(ngModel)]="email">
+            </div>
+        </div>
+        <div class="mb-3">
+            <div class="input-group">
+                <span class="input-group-text">Password</span>
+                <input type="password" class="form-control" [(ngModel)]="password">
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="login()">Login</button>
+    </div>
+</div>
